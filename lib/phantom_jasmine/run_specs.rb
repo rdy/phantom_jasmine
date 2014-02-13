@@ -2,11 +2,7 @@ $:.unshift(ENV['JASMINE_GEM_PATH']) if ENV['JASMINE_GEM_PATH'] # for gem testing
 
 require 'rubygems'
 require 'jasmine'
-if Jasmine::Dependencies.rspec2?
-  require 'rspec'
-else
-  require 'spec'
-end
+require 'rspec'
 require 'jasmine/runners/phantom'
 
 jasmine_yml = File.join(Dir.pwd, 'spec', 'javascripts', 'support', 'jasmine.yml')
