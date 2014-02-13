@@ -1,13 +1,8 @@
 namespace :jasmine do
   desc "Run continuous integration tests with phantom"
   task :phantom => ["jasmine:require_json", "jasmine:require"] do
-    if Jasmine::Dependencies.rspec2?
-      require "rspec"
-      require "rspec/core/rake_task"
-    else
-      require "spec"
-      require 'spec/rake/spectask'
-    end
+    require "rspec"
+    require "rspec/core/rake_task"
 
     run_specs = ["#{File.join(File.dirname(__FILE__), '..', 'phantom_jasmine', 'run_specs.rb')}"]
     if Jasmine::Dependencies.rspec2?
